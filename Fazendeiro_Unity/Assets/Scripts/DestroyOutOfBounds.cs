@@ -9,10 +9,14 @@ public class DestroyOutOfBounds : MonoBehaviour
 {
     private float topBound = 30f;
     private float lowerBound = -10f;
+
+    private GameObject player;
+    private VIDA_PONTOS vida;
     // Start is called before the first frame update
     void Start()
     {
-        
+         player=GameObject.FindWithTag("Player");
+vida = player.GetComponent<VIDA_PONTOS>();
     }
 
     // Update is called once per frame
@@ -31,7 +35,8 @@ public class DestroyOutOfBounds : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Game Over!");
+      //  Debug.Log("Game Over!"); //Caso a animal saia do cenário sem levar pizzada na cara
+       // vida.AddVida(-1);
         /*
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();

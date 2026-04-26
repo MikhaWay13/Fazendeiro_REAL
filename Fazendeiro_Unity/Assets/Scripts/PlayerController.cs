@@ -6,14 +6,21 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public GameObject PausarTela;
+    public GameObject UpgradeTela;
     public float speed = 17f;
     public float xRange = 25f;
     public GameObject projectilePrefab;
     public InputActionAsset InputActions;
     private InputAction moveAction;
     private InputAction fireAction;
+
+    //pause
     private InputAction PauseActionPlayer;
     private InputAction PauseActionUI;
+
+    //compras/upgrade
+    private InputAction UpgradeActionPlayer;
+    private InputAction UpgradeActionUI;
 
     
   
@@ -56,7 +63,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        //evitar conflito entre telas
+        if (!PausarTela.activeSelf)
+        {
+            Upgrade();
+
+        }
+
+        if (!UpgradeTela.activeSelf)
+        {
         Pausar();
+        }
 
     }
 
@@ -66,14 +83,36 @@ public class PlayerController : MonoBehaviour
 
         if (PauseActionPlayer.WasPressedThisFrame())
         {
+            
+   
             PausarTela.SetActive(true);
             InputActions.FindActionMap("Player").Disable();
             InputActions.FindActionMap("UI").Enable();
-            Time.timeScale=0f;
+            Time.timeScale = 0f;
         }
         else if (PauseActionUI.WasPressedThisFrame())
         {
             PausarTela.SetActive(false);
+            InputActions.FindActionMap("UI").Disable();
+            InputActions.FindActionMap("Player").Enable();
+            Time.timeScale = 1f;
+
+        }
+    }
+    
+      private void Upgrade()
+    {
+
+        if (UpgradeActionPlayer.WasPressedThisFrame())
+        {
+            UpgradeTela.SetActive(true);
+            InputActions.FindActionMap("Player").Disable();
+            InputActions.FindActionMap("UI").Enable();
+            Time.timeScale=0f;
+        }
+        else if (UpgradeActionUI.WasPressedThisFrame())
+        {
+            UpgradeTela.SetActive(false);
             InputActions.FindActionMap("UI").Disable();
             InputActions.FindActionMap("Player").Enable();
             Time.timeScale=1f;
@@ -83,10 +122,14 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        PausarTela.SetActive(false);
+        UpgradeTela.SetActive(false);
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Jump");
         PauseActionPlayer = InputSystem.actions.FindAction("Player/Pause");
         PauseActionUI = InputSystem.actions.FindAction("UI/Pause");
+        UpgradeActionPlayer = InputSystem.actions.FindAction("Player/Upgrade");
+        UpgradeActionUI = InputSystem.actions.FindAction("UI/Upgrade");
 
     }
 

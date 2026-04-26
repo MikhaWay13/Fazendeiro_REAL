@@ -20,14 +20,14 @@ pontos = player.GetComponent<VIDA_PONTOS>();
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag!="Player"&&gameObject.tag=="Tiro")
         {
-       pontos.AddPontos();
+        int valor = Random.Range(10, 15)*5;
+       pontos.AddPontos(valor);
         Destroy(gameObject);
         Destroy(other.gameObject);
         }
