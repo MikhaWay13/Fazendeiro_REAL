@@ -76,7 +76,7 @@ public class Upgrade : MonoBehaviour
                 comprado2 = true;
                 config.AddPontos(-5000);
                 comprar1.SetActive(true); //aparece o icone de comprado
-                SceneManager.LoadScene("Vitória");
+                SceneManager.LoadScene("Vitoria");
             }
         }
     }

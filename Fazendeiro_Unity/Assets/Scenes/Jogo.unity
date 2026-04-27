@@ -3796,7 +3796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VIDA_PONTOS
   vidas: 3
-  pontuacao: 5001
+  pontuacao: 5002
   segundos: 0
   saude: {fileID: 485784509}
   pontos: {fileID: 1211703969}

@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jogo.unity
     guid: ead6137e672c28643babc4f91f751734
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 85f6f06624e764b4b8ebbd5fe5df7eca
+  - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: 8fb99d54ace00744f9179c36e4e85e24
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d915c0dd76eef78458023c4d0a5fd65c, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: fa151c410c0b1d144bee4cfdbb0917d7, type: 3}

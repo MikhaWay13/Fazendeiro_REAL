@@ -35,7 +35,7 @@ public class Fantasma : MonoBehaviour
 
             if (ghost.IsPressed())
             {
-              
+              intervalo=true;
                 Colisor.enabled = false;
                 Player.SetActive(false);
                 corotina = Tempo(2.0f);
@@ -47,7 +47,7 @@ public class Fantasma : MonoBehaviour
             
         if (!ghost.IsPressed())
         {
-           
+           intervalo=false;
             Colisor.enabled=true;
             Player.SetActive(true);
         }
