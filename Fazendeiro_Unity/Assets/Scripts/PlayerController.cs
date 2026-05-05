@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Pausar()
+    private void Pausar()    //janela de pausar abre e fecha
     {
 
 
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-      private void Upgrade()
+      private void Upgrade()              //janela de upgrade abre e fecha
     {
 
         if (UpgradeActionPlayer.WasPressedThisFrame())
@@ -123,7 +123,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         PausarTela.SetActive(false);
-        UpgradeTela.SetActive(false);
+        UpgradeTela.SetActive(false); //jogo funciona após vencer/ perder/ voltar do menu
+        Time.timeScale=1f;
+
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Jump");
         PauseActionPlayer = InputSystem.actions.FindAction("Player/Pause");

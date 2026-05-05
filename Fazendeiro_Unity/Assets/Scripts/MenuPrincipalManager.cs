@@ -54,6 +54,7 @@ public class MenuPrincipalManager : MonoBehaviour
         Debug.Log("Sair");
         Application.Quit();
         #endif
+        Application.Quit();
     }
 
 
